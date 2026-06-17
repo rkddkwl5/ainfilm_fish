@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6; 
+    color: #b0b0b3; 
+    background-color: #050507; 
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* --- 네비게이션 & 드롭다운 공통 세팅 --- */
+nav {
+    background-color: rgba(5, 5, 7, 0.8);
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo img { height: 38px; width: auto; display: block; transition: transform 0.3s; }
+.nav-logo:hover img { transform: scale(1.02); }
+
+nav ul { list-style: none; display: flex; gap: 40px; }
+nav a { color: #75757a; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; position: relative; padding: 6px 0; }
+nav a:hover, nav a.active { color: #4dff00; }
+nav a.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #4dff00; }
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown { position: relative; display: inline-block; padding-bottom: 10px; }
+.dropdown-content {
+    display: none; position: absolute; background-color: rgba(18, 18, 22, 0.95);
+    min-width: 180px; box-shadow: 0px 15px 30px rgba(0,0,0,0.7);
+    z-index: 1001; border-radius: 12px; top: 100%; left: 50%; transform: translateX(-50%);
+    padding: 10px 0; border: 1px solid rgba(255,255,255,0.05);
+}
+.dropdown:hover .dropdown-content { display: flex; flex-direction: column; }
+.dropdown-content a {
+    color: #a0a0a5 !important; padding: 12px 20px !important; text-decoration: none;
+    display: block; font-size: 0.9rem !important; font-weight: 500; transition: all 0.2s ease; text-align: center;
+}
+.dropdown-content a:hover, .dropdown-content a.active-sub {
+    color: #4dff00 !important; background-color: rgba(77, 255, 0, 0.05);
+}
+
+/* --- 메인 래퍼 & 헤더 --- */
+.who-wrapper {
+    max-width: 1200px;
+    margin: 160px auto 100px;
+    padding: 0 24px;
+}
+
+.page-header { text-align: center; margin-bottom: 70px; }
+.sub-tag { color: #4200ad; font-size: 0.85rem; font-weight: 800; letter-spacing: 4px; margin-bottom: 15px; }
+.page-header h1 { color: #ffffff; font-size: 3rem; font-weight: 900; letter-spacing: 0px; text-shadow: 0 0 40px rgba(255, 255, 255, 0.1); }
+
+/* --- 프로필 분할 레이아웃 --- */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* 좌측 이미지, 우측 텍스트 비율 */
+    gap: 60px;
+    align-items: center;
+    background-color: #0e0e12;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* 좌측 인물 사진 프레임 */
+.profile-image-box {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.profile-layout:hover .profile-image-box img {
+    transform: scale(1.03); /* 전체 레이아웃 호버 시 사진 미세 줌인 */
+}
+
+/* 사진 위에 깔리는 고급스러운 비네팅 및 보라빛 틴트 효과 */
+.image-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(5,5,7,0.8) 0%, rgba(66,0,173,0.1) 50%, rgba(5,5,7,0.2) 100%);
+    pointer-events: none;
+}
+
+/* 우측 바이오그래피 텍스트 영역 */
+.profile-bio-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+    margin-bottom: 40px;
+    word-break: keep-all;
+}
+
+.bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #cccccc;
+    line-height: 1.7;
+    letter-spacing: -0.3px;
+    text-align: left;
+    word-break: keep-all;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 35px;
+}
+
+.highlight {
+    color: #4dff00;
+    font-weight: 700;
+}
+
+.philosophy-block h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.philosophy-block h3 span {
+    font-size: 0.85rem;
+    color: #4200ad;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.philosophy-block p {
+    font-size: 0.95rem;
+    color: #929296;
+    line-height: 1.6;
+    text-align: left;
+    word-break: keep-all;
+}
+
+/* 하단 서명 영역 */
+.contact-signature {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.contact-signature p {
+    font-size: 1rem;
+    color: #636366;
+    letter-spacing: 2px;
+}
+
+.contact-signature strong {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    letter-spacing: 4px;
+}
+
+/* --- 반응형 최적화 --- */
+@media (max-width: 1024px) {
+    .profile-layout {
+        grid-template-columns: 1fr; /* 패드/모바일에서는 세로 배치 */
+        padding: 30px;
+        gap: 40px;
+    }
+    .profile-image-box {
+        min-height: 400px;
+    }
+    .bio-title {
+        font-size: 1.8rem;
+    }
+    .page-header h1 {
+        font-size: 2.4rem;
+    }
+}
+
+
+
+/* 푸터 스타일 */
+footer {
+    background-color: #030305;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 20px;
+    text-align: center;
+    color: #636366;
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.footer-links {
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4dff00;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}

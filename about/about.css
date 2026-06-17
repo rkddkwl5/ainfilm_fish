@@ -1,0 +1,326 @@
+@charset "utf-8";
+
+/* 1. 폰트 세팅 및 코어 초기화 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+* {
+    box-sizing: border-box;    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6; 
+    color: #a5a5a8; 
+    background-color: #030305; /* 한층 더 깊어진 시네마틱 다크 베이스 */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.3px; /* 과하지 않고 단정하게 벌린 황금 자간 값 */
+}
+
+a {
+   text-decoration: none; 
+   color: inherit; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* 2. 크리에이티브 글래스모피즘 네비바 */
+nav {
+    background-color: rgba(3, 3, 5, 0.85);
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px; /* 20px로 늘려 resume와 완전히 동일하게 맞춤 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 로고 사이즈 업 및 프로페셔널 정렬 */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 38px; /* 존재감 있게 키운 로고 크기 */
+    width: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+.nav-logo:hover img {
+    transform: scale(1.02);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    color: #75757a;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 6px 0;
+}
+
+nav a:hover, nav a.active {
+    color: #4dff00; 
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4dff00;
+}
+
+/* 3. 메인 레이아웃 가이드 */
+.container {
+    width: 100%;
+    padding-top: 160px; 
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-section {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 24px;
+}
+
+/* 4. 메인 대제목 에디토리얼 디자인 */
+.page-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.sub-tag {
+    color: #4200ad;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 4px; 
+    margin-bottom: 15px;
+}
+
+.page-header h1 {
+    color: #ffffff;
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 50px rgba(255, 255, 255, 0.08);
+}
+
+/* 5. 하이엔드 포트폴리오 섹션 카드 (통 호버 이펙트 장착) */
+.about-me-card {
+    background-color: #0e0e12; 
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 45px; 
+    margin-bottom: 60px;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    
+    /* 카드 전체 모션 부드러움 극대화 */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+}
+
+/* [간지 포인트 1] 마우스 호버 시 카드 통째로 빌드업 + 미스틱 더블 네온 글로우 */
+.about-me-card:hover {
+    transform: translateY(-10px); 
+    border-color: rgba(77, 255, 0, 0.8); /* 형광 그린 테두리 전면 스위치 온 */
+    /* 딥 퍼플과 브라이트 그린이 레이어드된 환상적인 시네마틱 오라 구현 */
+    box-shadow: 0 0 35px rgba(77, 255, 0, 0.25), 0 0 60px rgba(66, 0, 173, 0.15), 0 40px 80px rgba(0, 0, 0, 0.8); 
+}
+
+.card-header {
+    margin-bottom: 35px;
+}
+
+.card-header h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-left: 5px solid #4200ad; 
+    padding-left: 16px;
+    transition: border-color 0.3s;
+}
+/* 카드 호버 시 매칭감을 위해 왼쪽 지시선도 형광 그린으로 은은하게 변화 */
+.about-me-card:hover .card-header h2 {
+    border-left-color: #4dff00;
+}
+
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;  
+    align-items: stretch;
+}
+
+/* 6. 시네마틱 이미지 프레임 (카드 호버 연동 줌인 모션) */
+.img-thumb {
+    width: 100%;
+    overflow: hidden; /* 연동 줌인 시 프레임 밖으로 나가는 이미지 커트 */
+    border-radius: 14px;
+    background-color: #16161c;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.img-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    /* 이미지 줌인 복구 트랜지션 */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* [간지 포인트 2] 개별 호버 대신, 카드에 마우스 올리면 내부 사진들이 일제히 서서히 대형 스크린처럼 줌인 */
+.about-me-card:hover .img-thumb img {
+    transform: scale(1.06);
+}
+
+/* 7. 고품격 본문 텍스트 아키텍처 */
+.text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 텍스트 내용과 하단 버튼을 위아래로 완벽 분할 */
+    align-items: flex-start;
+}
+
+.text-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* 문단 사이 띄어쓰기 여백 타이트하게 보정 완료 */
+}
+
+.text-block p.highlight-text {
+    font-size: 1.1rem;
+    color: #4dff00; 
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
+}
+
+.text-block p.desc-text {
+    font-size: 0.95rem;
+    color: #929296;
+    text-align: justify;
+    line-height: 1.6;
+    letter-spacing: -0.1px;
+}
+
+/* [간지 포인트 3] 최고급 에이전시 스타일의 팝업 연결 링크 버튼 */
+.popup-link-btn {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #4200ad; /* 보라색 하단 언더라인 바 */
+    padding-bottom: 4px;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.popup-link-btn span {
+    color: #4dff00; /* 플러스 기호는 아이덴티티 컬러 매칭 */
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+/* 버튼 호버 시 모션 트릭 */
+.popup-link-btn:hover {
+    color: #4dff00;
+    border-bottom-color: #4dff00;
+    text-shadow: 0 0 10px rgba(77, 255, 0, 0.5);
+}
+
+.popup-link-btn:hover span {
+    transform: rotate(90px); /* 플러스 기호 회전 임팩트 */
+}
+
+/* 8. 반응형 레이아웃 디테일 */
+@media (max-width: 1024px) {
+    .grid-3-cols {
+        grid-template-columns: 1fr; 
+        gap: 25px;
+    }
+    .about-me-card {
+        padding: 35px 25px;
+    }
+    .page-header h1 {
+        font-size: 2.4rem;
+    }
+    .popup-link-btn {
+        margin-top: 10px;
+    }
+}
+
+
+/* 푸터 스타일 */
+footer {
+    background-color: #030305;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 20px;
+    text-align: center;
+    color: #636366;
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.footer-links {
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4dff00;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}

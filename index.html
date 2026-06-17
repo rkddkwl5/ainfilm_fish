@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화감독 이아인 | Portfolio Opening</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #030305;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* 오프닝 타이포그래피 */
+        .opening-container {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .main-quote {
+            color: #4dff00;
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.4;
+            word-break: keep-all;
+            margin-bottom: 30px;
+            text-shadow: 0 0 40px rgba(77, 255, 0, 0.25);
+        }
+
+        .director-name {
+            font-size: 1.8rem;
+            color: #a5a5a8;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 70px;
+        }
+
+        /* 진입 버튼 (하이엔드 시네마틱 스타일) */
+        .enter-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #000000;
+            background-color: #4dff00;
+            border-radius: 40px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(77, 255, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            background-color: #66ff22;
+            box-shadow: 0 0 35px rgba(77, 255, 0, 0.8), 0 0 60px rgba(66, 0, 173, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="opening-container">
+        <h1 class="main-quote">
+            "가장 깊은 감정을 끄집어내는,<br>
+            다채로운 인생만큼 다양한 색감을 다루는 연출가."
+        </h1>
+        <p class="director-name">이아인 감독</p>
+        
+        <!-- 현재 창 그대로 이동하도록 세팅 -->
+        <a href="about/about.html" class="enter-btn">포트폴리오 입장하기</a>
+    </div>
+
+</body>
+</html>

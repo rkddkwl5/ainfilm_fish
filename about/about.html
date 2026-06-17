@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이아인에 대하여 | Film Director Portfolio</title>
+    <link href="about.css" rel="stylesheet">
+    
+    <!-- CSS 수정 사항 (띄어쓰기 교정 및 드롭다운 메뉴 스타일) -->
+    <style>
+        /* 1. 띄어쓰기가 너무 휑하게 벌어지던 현상 해결 (왼쪽 정렬로 고정) */
+        .text-block p.desc-text {
+            text-align: left !important;
+            letter-spacing: -0.3px; /* 글자를 살짝 쫀쫀하게 잡아줍니다 */
+        }
+
+        /* 2. 네비게이션 드롭다운 메뉴 스타일 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px; /* 마우스가 아래로 내려갈 때 메뉴가 안 끊기게 방지 */
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(18, 18, 22, 0.95);
+            min-width: 180px;
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.7);
+            z-index: 1001;
+            border-radius: 12px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 0;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        /* 마우스를 올리면 드롭다운 등장 */
+        .dropdown:hover .dropdown-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .dropdown-content a {
+            color: #a0a0a5 !important;
+            padding: 12px 20px !important;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem !important;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .dropdown-content a:hover {
+            color: #4dff00 !important;
+            background-color: rgba(77, 255, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 네비게이션 바 -->
+    <nav>
+        <div class="nav-container">
+            <!-- intro.html -> index.html 로 수정 완료 -->
+            <a href="../index.html" class="nav-logo">
+                <img src="img/logo.png" alt="IAIN LEE">
+            </a>
+            <ul>
+                <!-- About에 호버했을 때 메뉴가 내려오도록 드롭다운 적용 -->
+                <li class="dropdown">
+                    <a href="about.html" class="active">About</a>
+                    <!-- 드롭다운 박스 안의 연결 링크들 -->
+                    <div class="dropdown-content">
+                        <a href="../goal/Goal.html">MY GOALS</a>
+                        <a href="../who am i/who.html">WHO AM I?</a>
+                        <a href="../popup/popup.html">MY WORKS</a>
+                    </div>
+                </li>
+                <li><a href="../resume/resume.html">Resume</a></li>
+                <li><a href="../ability/ability.html">Ability</a></li>
+            </ul>
+        </div>
+    </nav>  
+
+    <!-- 2. 메인 컨텐츠 영역 -->
+    <div class="container">
+        <section class="main-section">
+            <div class="inner">
+                
+                <header class="page-header">
+                    <p class="sub-tag">PROFILE</p>
+                    <h1>이아인은 누구인가요?</h1>
+                </header>
+
+                <!-- 섹션 1: 강렬한 목표의 인재 -->
+                <div class="about-me-card">
+                    <div class="card-header">
+                        <h2>강렬한 목표의 인재</h2>
+                    </div>
+                    <div class="card-body grid-3-cols">
+                        <div class="img-thumb">
+                            <img src="img/img01.jpg" alt="작업 이미지 01">
+                        </div>
+                        <div class="img-thumb">
+                            <img src="img/img02.jpg" alt="작업 이미지 02">
+                        </div>
+                        <div class="text-block">
+                            <div class="text-inner">
+                                <p class="highlight-text">“세상에서 가장 냉소적인 사람도<br> 눈물을 흘리게 만드는 작품”을 만드는 것을 목표로 가진 감독</p>
+                                <p class="desc-text">“모든 사람은 각각 본연의 스토리와 장단점을 지닌다” 라는 가치관을 작품으로 녹여내고자 하는 영화감독 지망생, 이아인 입니다.</p>
+                            </div>
+                            <!-- 링크 변경: Goal.html 로 연결 -->
+                            <a href="../goal/Goal.html" class="popup-link-btn">MY GOALS <span>+</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 섹션 2: 편안한 매력의 인재 -->
+                <div class="about-me-card">
+                    <div class="card-header">
+                        <h2>편안한 매력의 인재</h2>
+                    </div>
+                    <div class="card-body grid-3-cols">
+                        <div class="img-thumb">
+                            <img src="img/img04.jpg" alt="작업 이미지 04">
+                        </div>
+                        <div class="text-block">
+                            <div class="text-inner">
+                                <p class="highlight-text">세상을 남들보다 더욱 진지하고 다양한 시각으로 바라보고,</p>
+                                <p class="desc-text">이를 가장 냉소적인 사람에게 마저 깊이 느껴지도록 밀도 높은 작품을 연출해내는 감독입니다.</p>
+                            </div>
+                            <!-- 링크 변경: who.html 로 연결 -->
+                            <a href="../who am i/who.html" class="popup-link-btn">WHO AM I? <span>+</span></a>
+                        </div>
+                        <div class="img-thumb">
+                            <img src="img/img03.jpg" alt="작업 이미지 03">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 섹션 3: 진중한 작업물들 -->
+                <div class="about-me-card">
+                    <div class="card-header">
+                        <h2>진중한 작업물들</h2>
+                    </div>
+                    <div class="card-body grid-3-cols">
+                        <div class="text-block">
+                            <div class="text-inner">
+                                <p class="highlight-text">앞으로 인생을 살며 느끼게 될 더 다채로운 감정을 기대하는 마음을 담아내다.</p>
+                                <p class="desc-text">포트폴리오엔 다양하되 강렬하고 한눈에 들어오는 시네마틱 색감들을 주로 사용했습니다. 또한 마음이 지친 관객도 편안하게 몰입할 수 있도록 레이아웃과 비주얼 타이포그래피를 진중하게 기획했습니다.</p>
+                            </div>
+                            <!-- 링크 유지: 작업물 모음집(popup.html) 로 연결 -->
+                            <a href="../popup/popup.html" class="popup-link-btn">VIEW WORKS <span>+</span></a>
+                        </div>
+                        <div class="img-thumb">
+                            <img src="img/img01.jpg" alt="작업물 06">
+                        </div>
+                        <div class="img-thumb">
+                            <img src="img/img02.jpg" alt="작업물 07">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">AIN LEE</div>
+            <div class="footer-links">
+                <a href="mailto:ainipretty2006@gmail.com">Email: ainipretty2006@gmail.com</a>
+                <a href="https://www.instagram.com/ainfilm21/" target="_blank">Instagram: @ainfilm21</a>
+                <a href="https://www.youtube.com/@mola_life">Youtube: @mola_life</a>
+            </div>
+            <p class="copyright">© 2026 AIN LEE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

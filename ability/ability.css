@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5; 
+    color: #b0b0b3; 
+    background-color: #050507; 
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.5px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* 네비게이션 공통 세팅 */
+nav {
+    background-color: rgba(5, 5, 7, 0.8);
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.nav-container {
+    max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+}
+
+.nav-logo img { height: 38px; width: auto; display: block; transition: transform 0.3s; }
+.nav-logo:hover img { transform: scale(1.02); }
+
+nav ul { list-style: none; display: flex; gap: 40px; }
+nav a { color: #75757a; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; position: relative; padding: 6px 0; }
+nav a:hover, nav a.active { color: #4dff00; }
+nav a.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #4dff00; }
+
+/* --- 드롭다운 메뉴 스타일 (추가됨) --- */
+.dropdown { position: relative; display: inline-block; padding-bottom: 10px; }
+.dropdown-content {
+    display: none; position: absolute; background-color: rgba(18, 18, 22, 0.95);
+    min-width: 180px; box-shadow: 0px 15px 30px rgba(0,0,0,0.7);
+    z-index: 1001; border-radius: 12px; top: 100%; left: 50%; transform: translateX(-50%);
+    padding: 10px 0; border: 1px solid rgba(255,255,255,0.05);
+}
+.dropdown:hover .dropdown-content { display: flex; flex-direction: column; }
+.dropdown-content a {
+    color: #a0a0a5 !important; padding: 12px 20px !important; text-decoration: none;
+    display: block; font-size: 0.9rem !important; font-weight: 500; transition: all 0.2s ease; text-align: center;
+}
+.dropdown-content a:hover, .dropdown-content a.active-sub {
+    color: #4dff00 !important; background-color: rgba(77, 255, 0, 0.05);
+}
+
+/* 메인 래퍼 및 헤더 */
+.ability-wrapper { max-width: 1140px; margin: 160px auto 100px; padding: 0 24px; }
+.page-header { text-align: center; margin-bottom: 70px; }
+.sub-tag { color: #4200ad; font-size: 0.85rem; font-weight: 800; letter-spacing: 4px; margin-bottom: 15px; }
+.page-header h1 { color: #ffffff; font-size: 3rem; font-weight: 900; letter-spacing: -1px; text-shadow: 0 0 40px rgba(255, 255, 255, 0.1); }
+
+/* 어빌리티 레이아웃 (그리드 분할) */
+.ability-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; align-items: stretch; }
+
+/* 공통 카드 디자인 */
+.ability-card {
+    background-color: #121216; border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px; padding: 45px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, border-color 0.4s, box-shadow 0.4s;
+}
+.ability-card:hover {
+    transform: translateY(-8px); border-color: rgba(77, 255, 0, 0.5);
+    box-shadow: 0 0 30px rgba(77, 255, 0, 0.15), 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+.card-header { margin-bottom: 35px; border-left: 5px solid #4200ad; padding-left: 15px; }
+.card-header h2 { color: #ffffff; font-size: 1.5rem; font-weight: 700; display: flex; flex-direction: column; }
+.card-header h2 span { font-size: 0.85rem; color: #636366; letter-spacing: 2px; margin-top: 4px; }
+
+/* --- 자격증 섹션 스타일 --- */
+.cert-list { list-style: none; display: flex; flex-direction: column; gap: 25px; }
+.cert-list li {
+    display: flex; align-items: flex-start; gap: 15px; background-color: #1a1a20;
+    padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.cert-icon { font-size: 2rem; line-height: 1; }
+.cert-info h3 { color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-bottom: 5px; }
+.cert-info p { font-size: 0.9rem; color: #929296; word-break: keep-all; }
+
+/* --- 소프트웨어 스킬 섹션 스타일 --- */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+.skill-item { display: flex; align-items: center; gap: 15px; }
+
+.skill-icon {
+    width: 55px; height: 55px; border-radius: 14px; display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem; font-weight: 900; box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;
+}
+.skill-icon img { width: 32px; height: 32px; }
+
+.icon-pr { background-color: #00005c; color: #ea77ff; }
+.icon-ae { background-color: #00005c; color: #9999ff; }
+.icon-ps { background-color: #001e36; color: #31a8ff; }
+.icon-ai { background-color: #330000; color: #ff9a00; }
+.icon-fg { background-color: #1a1a1a; }
+.icon-vs { background-color: #1a1a1a; }
+
+.skill-dots { display: flex; gap: 6px; }
+.dot { width: 26px; height: 10px; border-radius: 10px; background-color: #222; }
+.dot.purple { background-color: #8c52ff; box-shadow: 0 0 10px rgba(140, 82, 255, 0.6); }
+.dot.green { background-color: #4dff00; box-shadow: 0 0 8px rgba(77, 255, 0, 0.4); }
+
+/* --- 푸터 영역 스타일 (추가됨) --- */
+footer {
+    background-color: #030305;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 20px;
+    text-align: center;
+    color: #636366;
+    margin-top: 100px;
+}
+.footer-content { max-width: 1140px; margin: 0 auto; }
+.footer-logo { font-size: 1.5rem; font-weight: 900; color: #ffffff; margin-bottom: 20px; letter-spacing: 3px; }
+.footer-links { margin-bottom: 30px; }
+.footer-links a { margin: 0 15px; font-size: 0.9rem; transition: color 0.3s; }
+.footer-links a:hover { color: #4dff00; }
+.copyright { font-size: 0.8rem; letter-spacing: 1px; }
+
+/* 반응형 태블릿/모바일 */
+@media (max-width: 900px) {
+    .ability-layout { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 2.4rem; }
+}
